@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .full-screen-container {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .full-screen-image {
+      background: url('images/abstract_01.png') no-repeat center center;
+      height: 100vh;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .centered-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2rem;
+      text-align: center;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      margin-top: 100vh;
+      /* Push content below the full-screen image */
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand,
+    .nav-item {
+      padding-left: 30px;
+    }
+    .navbar-nav .nav-item .nav-link {
+    color: white; /* Initial color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+
+  .navbar-nav .nav-item .nav-link:hover {
+    color: #e1a900ee; /* Hover color */
+  }
+
+    .Callback {
+      background-color: black;
+      color: white;
+      padding: 2%;
+    }
+
+    .form {
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+
+    form .txt_field {
+      position: relative;
+      border-bottom: 2px solid #adadad;
+      margin: 30px 0;
+    }
+
+    .txt_field input {
+      color: aliceblue;
+      width: 100%;
+      padding: 0 5px;
+      height: 40px;
+      font-size: 16px;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    .txt_field label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      color: #adadad;
+      transform: translateY(-50%);
+      font-size: 16px;
+      pointer-events: none;
+      transition: .5s;
+    }
+
+    .txt_field span::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #e1a900ee;
+      transition: .5s;
+    }
+
+    .txt_field input:focus~label,
+    .txt_field input:valid~label {
+      top: -5px;
+      color: #e1a900ee;
+    }
+
+    .txt_field input:focus~span::before,
+    .txt_field input:valid~span::before {
+      width: 100%;
+    }
+    .link {
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #e1a900ee;
+}
+
+h6 {
+  font-weight: bold;
+}
+.footer ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer ul li a:hover {
+  color: #e1a900ee;
+}
+  </style>
+  <title>Mangobees Website</title>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="dash">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0, 0, 0, 0.164); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);  justify-content: space-between; padding-left: 15px; padding-right: 15px;">
+      <a class="navbar-brand" href="#">
+        <img src="images/Logo Transparent.png" alt="Logo" style="height: 40px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Our Work</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu bg-dark text-white border border-secondary"
+              aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item bg-dark text-white" href="#">Action</a>
+              <a class="dropdown-item bg-dark text-white" href="#">Another action</a>
+              <a class="dropdown-item bg-dark text-white" href="#">Something else here</a>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Full Screen Image with Centered Text -->
+  <div class="full-screen-container">
+    <div class="full-screen-image"></div>
+    <div class="centered-text">
+      In a world that revolves around technology<br>
+      Softwares shape the success of any sector
+    </div>
+  </div>
+
+  <!-- Cards Cards Cards Cards Cards-->
+  <div>
+    <div class="titles bg-dark text-white" style="font-size: 2.2rem; font-family: sans-serif; padding: 5% 0 0 3%;">Our
+      Services</div>
+    <div class="d-flex justify-content-around bg-dark text-white p-3">
+      <div class="card m-2 bg-dark border border-secondary" style="width: 18rem;">
+        <img src="images/EMS.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.0rem;">Enterprise Management System</h5>
+          <p class="card-text" style="font-size: 0.7rem;">Software packages created with large businesses in mind. They allow for many applications and softwares to be controlled from a central location.</p>
+          <a href="#" class="btn btn-primary" style="font-size: 0.7rem;">See more</a>
+        </div>
+      </div>
+      <div class="card m-2 bg-dark border border-secondary" style="width: 18rem;">
+        <img src="images/restms.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.0rem;">Restaurant Management System</h5>
+          <p class="card-text" style="font-size: 0.7rem;">Keep an eye on your sales and inventory at all times and stay on top of your operations. Cashier, Digital Menu, Inventory and much more.</p>
+          <a href="#" class="btn btn-primary" style="font-size: 0.7rem;">See more</a>
+        </div>
+      </div>
+      <div class="card m-2 bg-dark border border-secondary" style="width: 18rem;">
+        <img src="images/RMS.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 1.0rem;">Retail Management System</h5>
+          <p class="card-text" style="font-size: 0.7rem;">A platform that aids in the day-to-day operation of a retail store or chain, such as managing and buying inventory, checking out customers.</p>
+          <a href="#" class="btn btn-primary" style="font-size: 0.7rem;">See more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clients Clients Clients Clients Clients-->
+  <div class="text-white py-4" style="background-color: black;">
+    <div class="titles" style="font-size: 2.2rem; font-family: sans-serif; padding: 5% 0 0 3%;">Our Clients</div>
+    <div class="clientCircles d-flex justify-content-around my-4 p-2" style="background-color: rgba(0, 0, 0, 0.5);">
+      <div class="rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
+        <img src="images/Zulfa_Green.png" alt="Client 1" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
+        <img src="images/mt.png" alt="Client 2" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
+        <img src="images/chatgayye.jpg" alt="Client 3" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
+        <img src="images/nepali.png" alt="Client 4" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="rounded-circle overflow-hidden" style="width: 120px; height: 120px;">
+        <img src="images/nepali2.png" alt="Client 5" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- CallBack CallBack CallBack CallBack -->
+  <div class="Callback  text-white py-4">
+    <div class="titles" style="font-size: 2.2rem; font-family: sans-serif; padding: 5% 0 0 1%;">Call Back Request</div>
+    <div class="row">
+      <div class="col-sm-6">
+        <form method="post">
+          <div class="txt_field">
+            <input type="text" required>
+            <span></span>
+            <label>Full Name</label>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-6">
+        <form method="post">
+          <div class="txt_field">
+            <input type="text" required>
+            <span></span>
+            <label>Preferred Time</label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <form method="post">
+          <div class="txt_field">
+            <input type="text" required>
+            <span></span>
+            <label>Gmail</label>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-6">
+        <form method="post">
+          <div class="txt_field">
+            <input type="text" required>
+            <span></span>
+            <label>Comments</label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="mx-auto" style="width: 200px;">
+      <button type="submit" class="btn btn-sm btn-warning mt-4">Submit</button>
+    </div>
+  </div>
+
+  <!-- footer footer footer footer -->
+  <div class="footer bg-dark">
+    <div class="container text-white py-4">
+      <div class="row">
+        <div class="col-sm-4 p-3" style="font-size: 0.9rem;">
+          <h6>Social Media</h6>
+          <ul class="list-unstyled">
+            <li><a href="https://www.facebook.com/">Facebook</a></li>
+            <li><a href="https://www.instagram.com/">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/">Linkedin</a></li>
+            <li><a href="https://www.tiktok.com/">TikTok</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 p-3" style="font-size: 0.9rem;">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Our Work</a></li>
+            <li><a href="#">Our Services</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 p-3" style="font-size: 0.9rem;">
+          <h6>Contacts</h6>
+          <ul class="list-unstyled">
+            <li><a href="https://www.mangobees.com">+97150123467</a></li>
+            <li><a href="https://www.mangobees.com">www.mangobees.com</a></li>
+            <li><a href="mailto:Mangobees@gmail.com">Mangobees@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
